@@ -21,3 +21,7 @@ This project is about servers and SSH. It uses an RSA key pair to connect to a r
 ## Author
 
 Ruzigana Irakiza Junior Raul (rruzigana-hub), African Leadership University
+
+### Advanced
+
+- `ssh/100-puppet_ssh_config.pp`: Puppet manifest that sets the SSH client to use `~/.ssh/school` and to refuse password authentication.
