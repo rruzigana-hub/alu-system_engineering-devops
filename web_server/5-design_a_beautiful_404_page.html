@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>404 | Page not found</title>
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;
+    background:radial-gradient(circle at 50% 30%,#1b2a6b,#0a0e27 70%);color:#fff;
+    font-family:Arial,Helvetica,sans-serif;text-align:center;overflow:hidden}
+  .stars{position:fixed;top:0;right:0;bottom:0;left:0;opacity:.7;
+    background-image:radial-gradient(2px 2px at 20px 30px,#fff,transparent),
+    radial-gradient(2px 2px at 120px 80px,#fff,transparent),
+    radial-gradient(1px 1px at 200px 150px,#fff,transparent),
+    radial-gradient(2px 2px at 300px 60px,#fff,transparent);
+    background-size:340px 200px;animation:drift 60s linear infinite}
+  @keyframes drift{to{background-position:-340px 200px}}
+  main{position:relative;padding:24px}
+  h1{font-size:clamp(5rem,22vw,11rem);margin:0;letter-spacing:.05em;
+    background:linear-gradient(90deg,#ff7a59,#ffd166,#5eead4);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    animation:float 4s ease-in-out infinite}
+  @keyframes float{50%{transform:translateY(-14px)}}
+  p.quote{font-size:1.6rem;margin:8px 0}
+  p.sub{opacity:.75;margin:0 0 28px}
+  a{display:inline-block;padding:12px 26px;border-radius:30px;background:#ffd166;
+    color:#0a0e27;text-decoration:none;font-weight:bold;transition:transform .2s}
+  a:hover{transform:scale(1.07)}
+  .planet{position:fixed;right:8%;bottom:10%;width:110px;height:110px;border-radius:50%;
+    background:radial-gradient(circle at 30% 30%,#5eead4,#1b7f79);
+    box-shadow:inset -14px -10px 0 rgba(0,0,0,.25);animation:float 6s ease-in-out infinite}
+  .planet::after{content:"";position:absolute;left:-30px;right:-30px;top:48px;height:14px;
+    border-radius:50%;border:3px solid rgba(255,209,102,.8);transform:rotate(-15deg)}
+</style>
+</head>
+<body>
+<div class="stars"></div>
+<div class="planet"></div>
+<main>
+  <h1>404</h1>
+  <p class="quote">Ceci n'est pas une page</p>
+  <p class="sub">You drifted into empty space. The page you wanted does not exist.</p>
+  <a href="/">Take me home</a>
+</main>
+</body>
+</html>

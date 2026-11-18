@@ -25,3 +25,7 @@ Ruzigana Irakiza Junior Raul (rruzigana-hub), African Leadership University
 ### Advanced
 
 - `ssh/100-puppet_ssh_config.pp`: Puppet manifest that sets the SSH client to use `~/.ssh/school` and to refuse password authentication.
+
+## Web server project
+
+See `web_server/README.md`: scripts that transfer files with scp and configure Nginx (install, 301 redirect, custom 404 page) on `web-01`.
