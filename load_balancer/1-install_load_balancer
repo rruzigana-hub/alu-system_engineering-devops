@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+# Installs HAProxy and balances traffic between web-01 and web-02 (roundrobin)
+apt-get -y update
+apt-get -y install haproxy
+echo "ENABLED=1" >> /etc/default/haproxy
+case_global=""
+case_front=""
+if haproxy -v | grep -q "version 2"
+then
+  case_global="    h1-case-adjust x-served-by X-Served-By"
+  case_front="    option h1-case-adjust-bogus-client"
+fi
+cat > /etc/haproxy/haproxy.cfg << EOF
+global
+    log /dev/log local0
+    chroot /var/lib/haproxy
+    user haproxy
+    group haproxy
+    daemon
+$case_global
+
+defaults
+    log global
+    mode http
+    option httplog
+    timeout connect 5000
+    timeout client 50000
+    timeout server 50000
+
+frontend http_front
+    bind *:80
+$case_front
+    default_backend http_back
+
+backend http_back
+    balance roundrobin
+    server 7394-web-01 3.9.13.145:80 check
+    server 7394-web-02 18.175.236.166:80 check
+EOF
+service haproxy restart

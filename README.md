@@ -29,3 +29,7 @@ Ruzigana Irakiza Junior Raul (rruzigana-hub), African Leadership University
 ## Web server project
 
 See `web_server/README.md`: scripts that transfer files with scp and configure Nginx (install, 301 redirect, custom 404 page) on `web-01`.
+
+## Load balancer project
+
+See `load_balancer/README.md`: a custom Nginx header on web-01 and web-02, and HAProxy with roundrobin on lb-01.
